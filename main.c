@@ -7,7 +7,8 @@
 ◦
 // string formatada
 
-
+fscanf depois tudo fread fwrite
+// deixar para fazer as alterações no hd no final
 feito: struct pokemon
 Deverá permitir cadastrar
 (inserir/listar/pesquisar/alterar/excluir) os Pokémons disponíveis para serem capturados.
@@ -25,24 +26,40 @@ um arquivo texto no formato .CSV (separados por v
 */
 #include <stdlib.h>
 #include <stdio.h>
-#include <menu.h>
+#include "menu.h"
+#include "carrega.h"
+#include "colecao.h"
+#include "mochila.h"
+#include "pokemon.h"
+#include "sair.h"
 
 int main(){
+	Pokedex pokedex;
+	Mochila mochila;
+	Colecao colecao;
+	carrega(pokedex, mochila, colecao);
 	while (true){
 		int opcao = menu_principal();
 		switch (opcao){
 		case 1:
-			/* code */
+			menu_pokedex();
 			break;
 		case 2:
+			menu_colecao();
 			break;
 		case 3:
+			menu_mochila();
 			break;
 		case 4:
 			break;
-		default:
+		case 5:
 			break;
-		}
+		case 6:
+			break;
+		case 7:
+			break;
+		
 	}
+	salva(pokedex, mochila, colecao);
     return 0;
 }
