@@ -36,8 +36,9 @@ typedef struct {
 #include<stdlib.h>
 #include<string.h>
 
+#include "pokemon.h"
 
-void carregar(){
+void carregar(Pokemon){
 
 
     FILE *arquivo;
