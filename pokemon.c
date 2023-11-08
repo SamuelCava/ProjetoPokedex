@@ -3,7 +3,7 @@ typedef struct {
     // mudar esse 20
     char nome[20];
     char tipo1[20];
-    char tipo[20];
+    char tipo2[20];
     int total;
     int ataque;
     int defesa;

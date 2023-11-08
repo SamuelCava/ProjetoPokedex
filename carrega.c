@@ -20,17 +20,30 @@ void carregar(Pokemon){
 
     FILE *arquivo;
 
+    Pokemon pokemon;
     int c;
+    int cont_linha = 0;
 
-    char meu_texto[25] = "Batalha pokemons.";
+    arquivo = fopen("pokedex.csv", "r");              // Modo (r)
 
-    arquivo = fopen("dados.txt", "r");              // Modo (r)
-
+// Testar abertura
     if (arquivo == NULL){
-        perror("Erro para abrir o arquivo.");       // Comando para exibir mensagem de erro
-        exit(1);    // Finaliza o programa
+        perror("Erro para abrir o arquivo.");      
+        exit(1);   
     }// if
     
+// Identificar tamanho do arquivo csv e ler linha por linha
     while((c = fgetc(arquivo)) != EOF){
+    // If para ignorar a primeira linha
+        if(c == "\n"){
+            cont_linha++;
+        }//if
+    // Ler as linhas do arquivo
+        if(cont_linha > 1){                                                                             // OSB. Talvez tenha que arrumar o 9.2f do pokemon.altura. Na verdade os de float em geral.                              
+            fscanf(arquivo, "%7d,%12s,%9s,%9s,%6d,%4d,%7d,%7d,%16d,%16d,%11d,%8d,%9d,%8s,%9.2f,%8.2f,%12d", &pokemon.numero, pokemon.nome, pokemon.tipo1, pokemon.tipo2, &pokemon.total, &pokemon.hp,
+            &pokemon.ataque, &pokemon.defesa, &pokemon.ataque_especial, &pokemon.defesa_especial, &pokemon.velocidade, &pokemon.geracao, &pokemon.lendario, pokemon.cor, &pokemon.altura, &pokemon.peso, &pokemon.taxa_captura);
+        }//if
+
+        
         // Fazer um fscanf formatado para a linha do arquivo.csv e salvar nas respectivas variáveis da struct
     }// WHILE
