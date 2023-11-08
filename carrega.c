@@ -15,15 +15,15 @@ Abrir o arquivo.csv, reconhecer o seu tamanho, alocar memória e salvar em biná
 
 #include "pokemon.h"
 
-void carregar(Pokemon){
+void carregar(struct Pokemon){
 
 
     FILE *arquivo;
 
-    Pokemon pokemon;
-    int c;
-    int cont_linha = 0;
+// Gerar vetor para variáveis pokemon
+    Pokemon pokemon[722];
 
+// Abrir arquivo csv
     arquivo = fopen("pokedex.csv", "r");              // Modo (r)
 
 // Testar abertura
@@ -31,19 +31,32 @@ void carregar(Pokemon){
         perror("Erro para abrir o arquivo.");      
         exit(1);   
     }// if
+   
+    for (int i = 0; i < 3; i++){
+        fscanf(arquivo, "%d ,", &pokemon[i].numero);
+        fscanf(arquivo, " %s , ", pokemon[i].nome);
+        pokemon[i].nome[strcspn(pokemon[i].nome, " , ")] = '\0';
+        fscanf(arquivo, " %s , ", pokemon[i].tipo1);
+        pokemon[i].tipo1[strcspn(pokemon[i].tipo1, " , ")] = '\0';
+        fscanf(arquivo, " %s , ", pokemon[i].tipo2);
+        pokemon[i].tipo2[strcspn(pokemon[i].tipo2, " , ")] = '\0';
+        fscanf(arquivo, "%d ,", &pokemon[i].total);
+        fscanf(arquivo, "%d ,", &pokemon[i].ataque);
+        fscanf(arquivo, "%d ,", &pokemon[i].defesa);
+        fscanf(arquivo, "%d ,", &pokemon[i].ataque_especial);
+        fscanf(arquivo, "%d ,", &pokemon[i].defesa_especial);
+        fscanf(arquivo, "%d ,", &pokemon[i].velocidade);
+        fscanf(arquivo, "%d ,", &pokemon[i].geracao);
+        fscanf(arquivo, "%d ,", &pokemon[i].lendario);
+        fscanf(arquivo, " %s , ", pokemon[i].cor);
+        pokemon[i].cor[strcspn(pokemon[i].cor, " , ")] = '\0';
+        fscanf(arquivo, "%f ,", &pokemon[i].altura);
+        fscanf(arquivo, "%f ,", &pokemon[i].peso);
+        fscanf(arquivo, "%d ,", &pokemon[i].taxa_captura);
+    }//for
     
-// Identificar tamanho do arquivo csv e ler linha por linha
-    while((c = fgetc(arquivo)) != EOF){
-    // If para ignorar a primeira linha
-        if(c == "\n"){
-            cont_linha++;
-        }//if
-    // Ler as linhas do arquivo
-        if(cont_linha > 1){                                                                             // OSB. Talvez tenha que arrumar o 9.2f do pokemon.altura. Na verdade os de float em geral.                              
-            fscanf(arquivo, "%7d,%12s,%9s,%9s,%6d,%4d,%7d,%7d,%16d,%16d,%11d,%8d,%9d,%8s,%9.2f,%8.2f,%12d", &pokemon.numero, pokemon.nome, pokemon.tipo1, pokemon.tipo2, &pokemon.total, &pokemon.hp,
-            &pokemon.ataque, &pokemon.defesa, &pokemon.ataque_especial, &pokemon.defesa_especial, &pokemon.velocidade, &pokemon.geracao, &pokemon.lendario, pokemon.cor, &pokemon.altura, &pokemon.peso, &pokemon.taxa_captura);
-        }//if
-
+    for (int i = 0; i < 3; i++){
+        printf("%d o %s tem %s tipo1 e %s tipo2.\n", pokemon[i].numero, pokemon[i].nome, pokemon[i].tipo1, pokemon[i].tipo2);
+        printf("Seu ataque %d e defesa %d. Ataque especial %d e Defesa especial %d com velocidade %d\n", pokemon[i].ataque, pokemon[i].defesa,  pokemon[i].ataque_especial,  pokemon[i].defesa_especial,  pokemon[i].velocidade);
         
-        // Fazer um fscanf formatado para a linha do arquivo.csv e salvar nas respectivas variáveis da struct
-    }// WHILE
+    }//for
