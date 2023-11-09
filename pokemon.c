@@ -1,3 +1,5 @@
+#include "pokemon.h"
+
 typedef struct {
     int numero;
     // mudar esse 20
