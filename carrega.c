@@ -23,7 +23,7 @@ void carregar_csv(Pokemon pokemon[], int tamanho){
         FILE *arquivo;
 
     // Abrir arquivo csv
-        arquivo = fopen("pokedex.csv", "r");              // Modo (r)
+        arquivo = fopen("pokedex.csv", "r+");              // Modo (r)
 
     // Testar abertura
         if (arquivo == NULL){
