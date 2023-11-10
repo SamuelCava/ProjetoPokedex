@@ -5,6 +5,7 @@ typedef struct {
     char tipo1[20];
     char tipo2[20];
     int total;
+    int hp;
     int ataque;
     int defesa;
     int ataque_especial;
