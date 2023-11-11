@@ -14,6 +14,7 @@ Abrir o arquivo.csv, reconhecer o seu tamanho, alocar memória e salvar em biná
 #include<string.h>
 
 void carregar_csv(int tamanho){ 
+    // precisio verificar se já existe um binario
     // o problema aqui é que ainda n pega o tamanho do arquivo csv
     // preciso tbm remover os espaços extras das strings
     FILE *arquivo;

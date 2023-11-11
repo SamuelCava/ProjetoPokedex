@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "colecao.h"
+#include "pokedex.h"
 
 void inicia_vetor(Colecao colecao){
     colecao.codigo_capturados = (int*) calloc(colecao.tamanho, sizeof(int));
@@ -27,13 +28,9 @@ void inserir_pokemon(int codigo, Colecao colecao){
 
 }
 
-void listar_pokemons(Colecao colecao){
+void listar_pokemons(Colecao colecao, Pokedex pokedex){
     for (int i = 0; i < colecao.capturados; i++){
-        // acho que eu quero pelo menos o nome do pokemon aqui
-        // seria interessante usar outro arquivo pra cuidar dessas buscas, isso tbm é comum ao outro coisa la
-        // da mochila
-        printf("nome");
-    }
+        pesquisa(colecao.codigo_capturados[i], pokedex)
 }
 
 void pesquisar_pokemon(int codigo, Colecao colecao){

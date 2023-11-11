@@ -4,9 +4,10 @@
 #include "colecao.h"
 
 void abre_mochila(Mochila mochila){
+    // inicializar mochila com qtd = 0 se n tiver o mochila.dat
     FILE *arq;
     arq = fopen("mochila.dat", "rb");
-     if (arq == NULL){
+    if (arq == NULL){
         perror("Erro para abrir o arquivo.");      
         exit(1);   
     }// if

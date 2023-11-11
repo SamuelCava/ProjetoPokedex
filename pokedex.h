@@ -5,6 +5,7 @@ typedef struct{
     // tamanho representa o espaço de quantos int tenho pra usar
     int tamanho = 10;
     Pokemon *capturados;
+    
 
 }Pokedex;
 

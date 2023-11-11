@@ -14,7 +14,7 @@ void inicia_vetor(Pokedex pokedex){
 
 
 
-void inserir_pokemon(Pokemon pokemon, Pokedex pokedex){
+void inserir_na_pokedex(Pokemon pokemon, Pokedex pokedex){
     for (int i = 0; i < pokedex.capturados; i++){
         if (pokedex.capturados[i].numero == pokemon.numero){
             return;
@@ -41,7 +41,7 @@ void listar_pokemons(Pokedex pokedex){
     }
 }
 
-void pesquisar_pokemon(int codigo, Colecao colecao){
+void pesquisar_pokemon(int codigo, Pokedex pokedex){
     for (int i = 0; i < colecao.capturados; i++){
         if (colecao.codigo_capturados[i] == codigo){
             // achei ele

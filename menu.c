@@ -13,20 +13,22 @@ int intervalo(int a, int b){
 }
 
 
-int menu_pokedex(){
+int menu_pokedex(Pokedex pokedex){
     // (inserir/listar/pesquisar/alterar/exclui
     int qtd_opcoes = 5;
     printf("[1] inserir\n");
     printf("[2] listar\n");
     printf("[3] pesquisar\n");
     printf("[4] alterar\n");
-    printf("[5] inserir\n");
+    printf("[5] excluir\n");
     int opcao = intervalo(1, qtd_opcoes);
+    pokedex.inserir()
     return opcao;
 }
 
 int menu_colecao(){
     int qtd_opcoes = 5;
+    // remvoer inserir repetido
     printf("[1] inserir\n");
     printf("[2] listar\n");
     printf("[3] pesquisar\n");

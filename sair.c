@@ -32,7 +32,8 @@ void salva(Mochila mochila, Colecao colecao, Pokedex pokedex){
     fwrite(&colecao.capturados, sizeof(int), 1, arq);
     fwrite(colecao.codigo_capturados, sizeof(int), colecao.capturados, arq);
     fclose(arq);
-    arq = fopen("colecao.dat", "wb");
+    
+    arq = fopen("pokedex.dat", "wb");
     if (arq == NULL){
         printf("Erro ao abrir o arquivo!\n");
         exit(1);// 1 significa erro
