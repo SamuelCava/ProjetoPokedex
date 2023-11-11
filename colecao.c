@@ -1,18 +1,14 @@
 #include <stdlib.h>
-#include<stdio.h>
+#include <stdio.h>
+#include "colecao.h"
 
-typedef struct{
-    int capturados;
-    // tamanho representa o espaço de quantos int tenho pra usar
-    int tamanho = 10;
-    int *codigo_capturados;
-    codigo_capturados = (int*) calloc(tamanho, sizeof(int));
-    if (codigo_capturados == NULL){
+void inicia_vetor(Colecao colecao){
+    colecao.codigo_capturados = (int*) calloc(colecao.tamanho, sizeof(int));
+    if (colecao.codigo_capturados == NULL){
         printf("memoria insuficiente\n");
         exit(1);
     }
-
-}Colecao;
+}
 
 void inserir_pokemon(int codigo, Colecao colecao){
     for (int i = 0; i < colecao.capturados; i++){
@@ -36,7 +32,7 @@ void listar_pokemons(Colecao colecao){
         // acho que eu quero pelo menos o nome do pokemon aqui
         // seria interessante usar outro arquivo pra cuidar dessas buscas, isso tbm é comum ao outro coisa la
         // da mochila
-        printf();
+        printf("nome");
     }
 }
 
@@ -65,7 +61,7 @@ void excluir_pokemon(int codigo, Colecao colecao){
         if (colecao.codigo_capturados[i] == codigo){
             // seria interssante reescrever aqui os valores
             for (int l = i; l < colecao.capturados; l++){
-                colecao[l] = colecao[l+1];
+                colecao.codigo_capturados[l] = colecao.codigo_capturados[l+1];
             }
             if (colecao.tamanho - colecao.capturados > 10){
                 colecao.tamanho -= 10;

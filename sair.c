@@ -9,8 +9,12 @@ criados e uma mensagem de boas vindas deve ser apresentada ao usuário;
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include "mochila.h"
+#include "pokedex.h"
+#include "colecao.h"
 
-void salva(Mochila mochila, Colecao colecao){
+
+void salva(Mochila mochila, Colecao colecao, Pokedex pokedex){
     FILE *arq = fopen("mochila.dat","wb");
     if(arq == NULL){
         printf("Erro ao abrir o arquivo!\n");
@@ -28,4 +32,11 @@ void salva(Mochila mochila, Colecao colecao){
     fwrite(&colecao.capturados, sizeof(int), 1, arq);
     fwrite(colecao.codigo_capturados, sizeof(int), colecao.capturados, arq);
     fclose(arq);
+    arq = fopen("colecao.dat", "wb");
+    if (arq == NULL){
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);// 1 significa erro
+    }
+    // escrever aqui para salvar o arquivo da pokedex em binario
+
 }

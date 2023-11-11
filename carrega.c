@@ -13,12 +13,9 @@ Abrir o arquivo.csv, reconhecer o seu tamanho, alocar memória e salvar em biná
 #include<stdlib.h>
 #include<string.h>
 
-#include "pokemon.h"
-
-void carregar_csv(int tamanho){
-
-
-
+void carregar_csv(int tamanho){ 
+    // o problema aqui é que ainda n pega o tamanho do arquivo csv
+    // preciso tbm remover os espaços extras das strings
     FILE *arquivo;
     arquivo = fopen("pokedex.csv", "r");
     FILE *arqBinario;
@@ -27,7 +24,7 @@ void carregar_csv(int tamanho){
     if (arquivo == NULL || arqBinario == NULL){
         perror("Erro para abrir o arquivo.");      
         exit(1);   
-    }// if
+    }
     char campo[50];
     // cada pokemon tem 17 coisas
     int campos = 17;
@@ -66,7 +63,7 @@ void carregar_csv(int tamanho){
         }
         
         campo_atual++;
-        if (campo_atual == 17){
+        if (campo_atual == campos){
             int prox_ev = 0;
             int pre_ev = 0;
             fwrite(&prox_ev, sizeof(int), 1, arqBinario);
@@ -79,9 +76,4 @@ void carregar_csv(int tamanho){
     fclose(arqBinario);
     fclose(arquivo);
     
-}
-int main(){
-    carregar_csv(722);
-    return 0;
-
 }

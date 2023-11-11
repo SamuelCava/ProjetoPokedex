@@ -26,18 +26,26 @@ um arquivo texto no formato .CSV (separados por v
 */
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "menu.h"
 #include "carrega.h"
 #include "colecao.h"
 #include "mochila.h"
 #include "pokemon.h"
 #include "sair.h"
+#include "abre_arquivo.h"
 
 int main(){
 	Pokedex pokedex;
 	Mochila mochila;
 	Colecao colecao;
-	carrega(pokedex, mochila, colecao);
+	// verifica se já existe o arquivo e se n existir cria a pokedex em binario
+	carregar_csv(722);
+	
+	abre_colecao(colecao);
+	abre_mochila(mochila);
+	abre_pokedex(pokedex);
+
 	while (true){
 		int opcao = menu_principal();
 		switch (opcao){
@@ -60,7 +68,7 @@ int main(){
 			break;
 		
 	}
-	salva(pokedex, mochila, colecao);
-	
+	salva(mochila, colecao, pokedex);
+
     return 0;
 }

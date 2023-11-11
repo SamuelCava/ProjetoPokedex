@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "mochila.h"
 #include "pokedex.h"
-#include "pokemon.h"
+#include "colecao.h"
 
 void abre_mochila(Mochila mochila){
     FILE *arq;
@@ -28,5 +28,23 @@ void abre_pokedex(Pokedex pokedex){
         perror("Erro para abrir o arquivo.");      
         exit(1);   
     }// if
+    for (int i = 0; i < pokedex.cadastrados; i++){
+        
+    }
+}
 
+void abre_colecao(Colecao colecao){
+    FILE *arq;
+    arq = fopen("colecao.dat", "rb");
+    if (arq == NULL){
+        perror("Erro para abrir o arquivo.");      
+        exit(1);   
+    }// if
+    int qtd_colecao;
+    fread(&qtd_colecao, sizeof(int), 1, arq);
+    for (int i = 0; i < qtd_colecao; i++){
+        int codigo;
+        fread(&codigo, sizeof(int), 1, arq);
+        inserir_pokemon(codigo, colecao);
+    }
 }
