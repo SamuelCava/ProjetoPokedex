@@ -5,8 +5,8 @@
 #include "pokemon.h"
 
 void inicia_vetor(Pokedex pokedex){
-    pokedex.capturados = (Pokemon*) calloc(pokedex.tamanho, sizeof(Pokemon));
-    if (pokedex.capturados == NULL){
+    pokedex.pokemons = (Pokemon*) calloc(pokedex.tamanho, sizeof(Pokemon));
+    if (pokedex.pokemons == NULL){
         printf("memoria insuficiente\n");
         exit(1);
     }
@@ -15,35 +15,46 @@ void inicia_vetor(Pokedex pokedex){
 
 
 void inserir_na_pokedex(Pokemon pokemon, Pokedex pokedex){
-    for (int i = 0; i < pokedex.capturados; i++){
-        if (pokedex.capturados[i].numero == pokemon.numero){
+    for (int i = 0; i < pokedex.qtd_cadastrados; i++){
+        if (pokedex.pokemons[i].numero == pokemon.numero){
             return;
             // nesse caso eu já tenho aquele pokemon cadastrado
         }
     }
     // verifico se preciso aumentar o tamanho do meu vetor
-    if (pokedex.tamanho == pokedex.cadastrados + 1){
+    if (pokedex.tamanho == pokedex.qtd_cadastrados + 1){
         pokedex.tamanho += 10;
-        realloc(pokedex.cadastrados, pokedex.tamanho*sizeof(int));
+        realloc(pokedex.qtd_cadastrados, pokedex.tamanho*sizeof(Pokemon));
     }
-    pokedex.cadastrados++;
+    pokedex.qtd_cadastrados++;
     // n posso uasr essa linha aqui
-    pokedex.capturados[pokedex.cadastrados-1] = pokemon;
+    pokedex.pokemons[pokedex.qtd_cadastrados-1] = pokemon;
 
 }
 
-void listar_pokemons(Pokedex pokedex){
-    for (int i = 0; i < pokedex.cadastrados; i++){
+void listar_na_pokedex(Pokedex pokedex){
+    for (int i = 0; i < pokedex.qtd_cadastrados; i++){
         // acho que eu quero pelo menos o nome do pokemon aqui
         // seria interessante usar outro arquivo pra cuidar dessas buscas, isso tbm é comum ao outro coisa la
         // da mochila
-        printf("nome: %s", pokedex.capturados[i].nome);
+        printf("nome: %s", pokedex.pokemons[i].nome);
     }
 }
 
-void pesquisar_pokemon(int codigo, Pokedex pokedex){
-    for (int i = 0; i < colecao.capturados; i++){
-        if (colecao.codigo_capturados[i] == codigo){
+void pesquisar_na_pokedex(int codigo, Pokedex pokedex){
+    for (int i = 0; i < pokedex.qtd_cadastrados; i++){
+        if (pokedex.pokemons[i].numero == codigo){
+            // achei ele
+            printf("achei\n");
+            printf("nome: %s\n", pokedex.pokemons[i].nome);
+        }
+    }
+}
+
+
+void alterar_na_pokedex(int codigo, Pokedex pokedex){
+    for (int i = 0; i < pokedex.qtd_cadastrados; i++){
+        if (pokedex.pokemons[i].numero == codigo){
             // achei ele
             printf("achei");
         }
@@ -51,26 +62,17 @@ void pesquisar_pokemon(int codigo, Pokedex pokedex){
 }
 
 
-void alterar_pokemon(int codigo, Colecao colecao){
-    for (int i = 0; i < colecao.capturados; i++){
-        if (colecao.codigo_capturados[i] == codigo){
-            // achei ele
-            printf("achei");
-        }
-    }
-}
-
-
-void excluir_pokemon(int codigo, Colecao colecao){
-    for (int i = 0; i < colecao.capturados; i++){
-        if (colecao.codigo_capturados[i] == codigo){
+void excluir_na_pokedex(int codigo, Pokedex pokedex){
+    for (int i = 0; i < pokedex.qtd_cadastrados; i++){
+        if (pokedex.pokemons[i].numero == codigo){
+            pokedex.qtd_cadastrados--;
             // seria interssante reescrever aqui os valores
-            for (int l = i; l < colecao.capturados; l++){
-                colecao[l] = colecao[l+1];
+            for (int l = i; l < pokedex.qtd_cadastrados; l++){
+                //colecao[l] = colecao[l+1];
             }
-            if (colecao.tamanho - colecao.capturados > 10){
-                colecao.tamanho -= 10;
-                realloc(colecao.codigo_capturados, colecao.tamanho*sizeof(int));
+            if (pokedex.tamanho - pokedex.qtd_cadastrados > 10){
+                pokedex.tamanho -= 10;
+                realloc(pokedex.pokemons, pokedex.tamanho*sizeof(int));
             }
             return;
         }
