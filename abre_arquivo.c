@@ -2,6 +2,7 @@
 #include "mochila.h"
 #include "pokedex.h"
 #include "colecao.h"
+#include "pokemon.h"
 
 void abre_mochila(Mochila mochila){
     // inicializar mochila com qtd = 0 se n tiver o mochila.dat
@@ -29,8 +30,32 @@ void abre_pokedex(Pokedex pokedex){
         perror("Erro para abrir o arquivo.");      
         exit(1);   
     }// if
-    for (int i = 0; i < pokedex.cadastrados; i++){
-        
+    // sei que a primeira coisa sempre é um número então vou verificando se 
+    // numero ,nome        ,tipo1    ,tipo2    ,total ,hp  ,ataque ,defesa ,ataque_especial ,
+    // defesa_especial ,velocidade ,geracao ,lendario ,cor     ,altura_m ,peso_kg ,taxa_captura
+    int numero;
+    Pokemon pokemon;
+    while (fread(&numero, sizeof(int), 1, arq) != EOF){
+        pokemon.numero = numero;
+        fread(pokemon.nome, sizeof(char), 30, arq);
+        fread(pokemon.tipo1, sizeof(char), 30, arq);
+        fread(pokemon.tipo2, sizeof(char), 30, arq);
+        fread(&pokemon.total, sizeof(int), 1, arq);
+        fread(&pokemon.hp, sizeof(int), 1, arq);
+        fread(&pokemon.ataque, sizeof(int), 1, arq);
+        fread(&pokemon.defesa, sizeof(int), 1, arq);
+        fread(&pokemon.ataque_especial, sizeof(int), 1, arq);
+        fread(&pokemon.defesa_especial, sizeof(int), 1, arq);
+        fread(&pokemon.velocidade, sizeof(int), 1, arq);
+        fread(&pokemon.geracao, sizeof(int), 1, arq);
+        fread(&pokemon.lendario, sizeof(int), 1, arq);
+        fread(pokemon.cor, sizeof(char), 30, arq);
+        fread(&pokemon.altura, sizeof(double), 1, arq);
+        fread(&pokemon.peso, sizeof(double), 1, arq);
+        fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
+        fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
+        fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
+        inserir_na_pokedex(pokemon, pokedex);
     }
 }
 
