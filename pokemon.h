@@ -1,9 +1,9 @@
 typedef struct {
     int numero;
     // mudar esse 20
-    char nome[20];
-    char tipo1[20];
-    char tipo2[20];
+    char nome[30];
+    char tipo1[30];
+    char tipo2[30];
     int total;
     int hp;
     int ataque;
@@ -13,7 +13,7 @@ typedef struct {
     int velocidade;
     int geracao;
     int lendario; // na verdade é bool aqui
-    char cor[20];
+    char cor[30];
     float altura;
     float peso;
     int taxa_captura;
