@@ -1,10 +1,6 @@
 /*
-Nesta atividade os alunos deverão desenvolver um sistema que permita a um Mestre Pokémon
-gerenciar: uma Pokédex contendo o catálogo de todos os pokémons conhecidos; uma coleção
-contendo todos os pokémons que você possui e; sua mochila que possui os 6 pokémons que
-ele pode carregar em uma batalha. O sistema deve ser desenvolvido utilizando a linguagem C e
-os conceitos visto em sala de aula. A atividade deverá ser desenvolvida em trios
-impreterivelmente.
+gerenciar:sua mochila que possui os 6 pokémons que
+ele pode carregar em uma batalha
 
 ◦ Deverá permitir visualizar os pokemons por Geração e tipo, navegando entre elas. Para
 isso utilize cores, sons e sua criatividade.
@@ -15,6 +11,7 @@ Trate erros do usuário com mensagens e alertas;
 ◦ Caso os arquivos não existam, eles devem ser
 criados e uma mensagem de boas vindas deve ser apresentada ao usuário;
 
+Fazendo
 ◦ O sistema deverá exibir no menu uma opção de exportar ao dados das estruturas em
 um arquivo texto no formato .CSV (separados por vírgula);
 
@@ -24,9 +21,7 @@ Observações sobre o código:
 de make (compilação), clean (limpeza) e run (execução);
 
 
-◦ Como parte do critério de avaliação, a qualidade do código-fonte do sistema será
-avaliada. Organize seu programa em arquivos .c e .h, funções. Evite o uso de variáveis
-globais. O código deverá estar comentado, edentado e com bons nomes de variáveis e
+O código deverá estar comentado, edentado e com bons nomes de variáveis e
 funções. Siga o padrão de documentação apresentado na disciplina (Doxygen).
 
 */
