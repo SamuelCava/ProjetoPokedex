@@ -1,5 +1,3 @@
-#include "pokedex.h"
-
 typedef struct{
     int capturados;
     // tamanho representa o espaço de quantos int tenho pra usar

@@ -13,59 +13,51 @@ Abrir o arquivo.csv, reconhecer o seu tamanho, alocar memória e salvar em biná
 #include<stdlib.h>
 #include<string.h>
 
-void carregar_csv(int tamanho){ 
+void carregar_csv(){ 
     // o problema aqui é que ainda n pega o tamanho do arquivo csv
     // preciso tbm remover os espaços extras das strings
     FILE *arquivo;
     arquivo = fopen("pokedex.csv", "r");
     FILE *arqBinario;
-    arqBinario = fopen("pokedex.dat", "rb");
-    if (arqBinario != NULL){
-        // nesse caso o arquiv já existe
-        return;
-    }else{
-        fclose(arqBinario);
-    }
     arqBinario = fopen("pokedex.dat", "wb");
     if (arquivo == NULL || arqBinario == NULL){
         perror("Erro para abrir o arquivo.");      
         exit(1);   
     }
-    char campo[50];
+    char campo[30];
     // cada pokemon tem 17 coisas
     int campos = 17;
     int campo_atual = 0;
     int linha = 0;
     int campos_double[2] = {14, 15};
     int campos_str[4] = {1, 2, 3, 13};
-    fwrite(&tamanho, sizeof(int), 1, arqBinario);
     while (fscanf(arquivo, "%[^,\n]%*c", campo)!=EOF){
+        printf("campo%d", campo_atual);
+        printf("%s\n", campo);
         // verifica se é string
         // vamos pular a primeira linha
         //printf("item: %s\n", campo);
         // 1, 2, 3, 13-> string
         // 14, 15 -> double
         // e o resto dos campos são int
-        if (linha != 0){
-            int is_str = 0;
-            for (int i = 0; i < 4; i++){
-                if (campo_atual == campos_str[i]){
-                    fwrite(campo, sizeof(char), 30, arqBinario);
-                    is_str = 1;
-                }
+        int is_str = 0;
+        for (int i = 0; i < 4; i++){
+            if (campo_atual == campos_str[i]){
+                fwrite(campo, sizeof(char), 30, arqBinario);
+                is_str = 1;
             }
-            if (is_str == 0){
-                double valor = atof(campo);
-                printf("valor: %f\n", valor);
-                if (campo_atual == 14 || campo_atual == 15){
-                    fwrite(&valor, sizeof(double), 1, arqBinario);
+        }
+        if (is_str == 0){
+            double valor = atof(campo);
+            printf("valor: %f\n", valor);
+            if (campo_atual == 14 || campo_atual == 15){
+                fwrite(&valor, sizeof(double), 1, arqBinario);
 
-                }else{
-                    int valor_inteiro = atoi(campo);
-                    fwrite(&valor_inteiro, sizeof(int), 1, arqBinario);
-                }
-                
+            }else{
+                int valor_inteiro = atoi(campo);
+                fwrite(&valor_inteiro, sizeof(int), 1, arqBinario);
             }
+            
         }
         
         campo_atual++;
@@ -82,4 +74,9 @@ void carregar_csv(int tamanho){
     fclose(arqBinario);
     fclose(arquivo);
     
+}
+
+int main(){
+    carregar_csv(20);
+    return 0;
 }

@@ -11,3 +11,5 @@ typedef struct{
     int codigos_pokemon[6];
 
 }Mochila;
+
+// preciso escrever os metodos
