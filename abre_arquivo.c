@@ -1,10 +1,15 @@
 #include <stdio.h>
-#include "mochila.h"
-#include "pokedex.h"
-#include "colecao.h"
-#include "pokemon.h"
+#include <stdlib.h>
 
-void abre_mochila(Mochila mochila){
+#include "pokedex.h"
+
+#ifndef POKEMON_H
+#define POKEMON_H
+
+/*
+#include "mochila.h"
+#include "colecao.h"
+void abre_mochila(Mochila* mochila){
     // inicializar mochila com qtd = 0 se n tiver o mochila.dat
     FILE *arq;
     arq = fopen("mochila.dat", "rb");
@@ -14,16 +19,16 @@ void abre_mochila(Mochila mochila){
     }// if
     int quantidade_mochila;
     fread(&quantidade_mochila, sizeof(int), 1, arq);
-    mochila.pokemons_mochila = quantidade_mochila;
+    mochila->pokemons_mochila = quantidade_mochila;
     for (int i = 0; i < quantidade_mochila; i++){
         int codigo;
         fread(&codigo, sizeof(int), 1, arq);
-        mochila.codigos_pokemon[i] = codigo;
+        mochila->codigos_pokemon[i] = codigo;
     }
 }
+*/
 
-
-void abre_pokedex(Pokedex pokedex){
+void abre_pokedex(Pokedex* pokedex){
     FILE *arq;
     arq = fopen("pokedex.dat", "rb");
      if (arq == NULL){
@@ -35,8 +40,9 @@ void abre_pokedex(Pokedex pokedex){
     // defesa_especial ,velocidade ,geracao ,lendario ,cor     ,altura_m ,peso_kg ,taxa_captura
     int numero;
     Pokemon pokemon;
-    while (fread(&numero, sizeof(int), 1, arq) != EOF){
+    while (fread(&numero, sizeof(int), 1, arq) == 1){
         pokemon.numero = numero;
+        printf("n:%d\n", numero);
         fread(pokemon.nome, sizeof(char), 30, arq);
         fread(pokemon.tipo1, sizeof(char), 30, arq);
         fread(pokemon.tipo2, sizeof(char), 30, arq);
@@ -55,11 +61,11 @@ void abre_pokedex(Pokedex pokedex){
         fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
         fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
         fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
-        inserir_na_pokedex(pokemon, pokedex);
+        inserir_na_pokedex(&pokemon, pokedex);
     }
 }
-
-void abre_colecao(Colecao colecao){
+/*
+void abre_colecao(Colecao* colecao){
     FILE *arq;
     arq = fopen("colecao.dat", "rb");
     if (arq == NULL){
@@ -74,3 +80,18 @@ void abre_colecao(Colecao colecao){
         inserir_pokemon(codigo, colecao);
     }
 }
+int main(){
+    Pokedex pokedex;
+    inicia_pokedex(&pokedex);
+    abre_pokedex(&pokedex);
+    printf("%d", pokedex.qtd_cadastrados);
+    for (int i = 0; i < pokedex.qtd_cadastrados; i++){
+        printf("a%d %s %d \n", pokedex.pokemons[i].numero, pokedex.pokemons[i].nome, pokedex.pokemons[i].ataque);
+
+
+    }
+    return 0;
+}
+*/
+
+#endif
