@@ -43,8 +43,26 @@ fgets(pokemon.tipo1, 30, stdin);
  printf("digite o segundo tipo do pokemon oj NULL");
 fgets(pokemon.tipo2, 30, stdin);
 
-printf("");
+printf("digite o total do pokemon: ");
+scanf("%d", pokemon.total);
+printf("digite o hp do pokemon");
+
+scanf("%d", pokemon.hp);
+
+
+  printf("digite o ataque do pokemon");
+scanf ("%d", pokemon.ataque);
+
+  printf("digite a defesa do pokemkn");
+scanf("%d", pokemon.defesa);
+
+printf("digite o ataque especial do pokemon");
+scanf("%d", pokemon.);
   printf("");
+
+scanf("%d", pokemon.);
+  printf("");
+
 printf("");
  printf("");
 printf("");
