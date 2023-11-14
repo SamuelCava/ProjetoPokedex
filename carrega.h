@@ -1,1 +1,1 @@
-void carregar_csv(int tamanho);
+void carregar_csv();

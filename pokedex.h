@@ -1,3 +1,5 @@
+#ifndef POKEDEX_H
+#define POKEDEX_H
 #include "pokemon.h"
 
 typedef struct{
@@ -15,3 +17,4 @@ void listar_na_pokedex(Pokedex* pokedex);
 void pesquisar_na_pokedex(int codigo, Pokedex* pokedex);
 void alterar_na_pokedex(int codigo, Pokedex* pokedex);
 void excluir_na_pokedex(int codigo, Pokedex* pokedex);
+#endif

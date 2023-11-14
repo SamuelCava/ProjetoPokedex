@@ -1,4 +1,7 @@
 
+#ifndef MOCHILA_H
+#define MOCHILA_H
+
 typedef struct{
     /*
     Defina uma estrutura Mochila que deve armazenar a relação de até 6 Pokémons já
@@ -13,3 +16,4 @@ typedef struct{
 }Mochila;
 
 // preciso escrever os metodos
+#endif

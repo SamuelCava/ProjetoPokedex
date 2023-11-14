@@ -2,13 +2,10 @@
 #include <stdlib.h>
 
 #include "pokedex.h"
-
-#ifndef POKEMON_H
-#define POKEMON_H
-
-/*
 #include "mochila.h"
+#include "pokemon.h"
 #include "colecao.h"
+
 void abre_mochila(Mochila* mochila){
     // inicializar mochila com qtd = 0 se n tiver o mochila.dat
     FILE *arq;
@@ -26,7 +23,6 @@ void abre_mochila(Mochila* mochila){
         mochila->codigos_pokemon[i] = codigo;
     }
 }
-*/
 
 void abre_pokedex(Pokedex* pokedex){
     FILE *arq;
@@ -59,12 +55,12 @@ void abre_pokedex(Pokedex* pokedex){
         fread(&pokemon.altura, sizeof(double), 1, arq);
         fread(&pokemon.peso, sizeof(double), 1, arq);
         fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
-        fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
-        fread(&pokemon.taxa_captura, sizeof(int), 1, arq);
+        fread(&pokemon.pre_evolucao, sizeof(int), 1, arq);
+        fread(&pokemon.proxima_evolucao, sizeof(int), 1, arq);
         inserir_na_pokedex(&pokemon, pokedex);
     }
 }
-/*
+
 void abre_colecao(Colecao* colecao){
     FILE *arq;
     arq = fopen("colecao.dat", "rb");
@@ -77,7 +73,7 @@ void abre_colecao(Colecao* colecao){
     for (int i = 0; i < qtd_colecao; i++){
         int codigo;
         fread(&codigo, sizeof(int), 1, arq);
-        inserir_pokemon(codigo, colecao);
+        inserir_colecao(codigo, colecao);
     }
 }
 int main(){
@@ -92,6 +88,3 @@ int main(){
     }
     return 0;
 }
-*/
-
-#endif

@@ -22,7 +22,7 @@ void inserir_colecao(int codigo, Colecao* colecao){
     // verifico se preciso aumentar o tamanho do meu vetor
     if (colecao->tamanho == colecao->capturados + 1){
         colecao->tamanho += 10;
-        realloc(colecao->codigo_capturados, colecao->tamanho*sizeof(int));
+        colecao->codigo_capturados = realloc(colecao->codigo_capturados, colecao->tamanho*sizeof(int));
     }
     colecao->capturados++;
     colecao->codigo_capturados[colecao->capturados-1] = codigo;
@@ -67,7 +67,7 @@ void excluir_colecao(int codigo, Colecao* colecao){
             }
             if (colecao->tamanho - colecao->capturados > 10){
                 colecao->tamanho -= 10;
-                realloc(colecao->codigo_capturados, colecao->tamanho*sizeof(int));
+                colecao->codigo_capturados = realloc(colecao->codigo_capturados, colecao->tamanho*sizeof(int));
             }
             return;
         }

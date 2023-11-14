@@ -1,3 +1,5 @@
+#ifndef POKEMON_H
+#define POKEMON_H
 typedef struct {
     int numero;
     // mudar esse 20
@@ -21,3 +23,4 @@ typedef struct {
     int pre_evolucao;
 
 }Pokemon;
+#endif

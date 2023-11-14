@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "pokedex.h"
-#ifndef POKEMON_H
-#define POKEMON_H
+
 
 
 void inicia_pokedex(Pokedex* pokedex){
@@ -28,9 +27,9 @@ void inserir_na_pokedex(Pokemon* pokemon, Pokedex* pokedex){
         }
     }
     // verifico se preciso aumentar o tamanho do meu vetor
-    if (pokedex->tamanho == pokedex->qtd_cadastrados + 1){
+    if (pokedex->tamanho <= pokedex->qtd_cadastrados + 1){
         pokedex->tamanho += 10;
-        realloc(pokedex->qtd_cadastrados, pokedex->tamanho*sizeof(Pokemon));
+        pokedex->pokemons = realloc(pokedex->pokemons, pokedex->tamanho*sizeof(Pokemon));
     }
     pokedex->qtd_cadastrados++;
     // n posso uasr essa linha aqui
@@ -58,6 +57,7 @@ void inserir_na_pokedex(Pokemon* pokemon, Pokedex* pokedex){
     pokedex->pokemons[pokedex->qtd_cadastrados-1].proxima_evolucao = pokemon->proxima_evolucao;
     printf("inseriu 1\n");
     printf("pokemon:%s\n", pokemon->nome);
+    printf("%d %d", pokedex->qtd_cadastrados, pokedex->tamanho);
 }
 
 void listar_na_pokedex(Pokedex* pokedex){
@@ -101,11 +101,10 @@ void excluir_na_pokedex(int codigo, Pokedex* pokedex){
             }
             if (pokedex->tamanho - pokedex->qtd_cadastrados > 10){
                 pokedex->tamanho -= 10;
-                realloc(pokedex->pokemons, pokedex->tamanho*sizeof(int));
+                pokedex->pokemons = realloc(pokedex->pokemons, pokedex->tamanho*sizeof(Pokemon));
             }
             return;
         }
     }
     printf("pokemon não encontrado\n");
 }
-#endif
