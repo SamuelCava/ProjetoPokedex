@@ -2,17 +2,25 @@
 ◦ Deverá permitir visualizar os pokemons por Geração e tipo, navegando entre elas. 
 Para isso utilize cores, sons e sua criatividade.
 */
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "busca_pokemon.h"
 
-/*
-Nota Samuel
+void busca_geracao(int geracao, Pokedex* pokedex){
+    for (int i = 0; i < pokedex->qtd_cadastrados; i++){
+        if (pokedex->pokemons[i].geracao == geracao){
+            printf("%s é da %dº geração\n", pokedex->pokemons[i].nome, geracao);
+        }
+    }
+}
 
-Dá pra utilizar a mesma lógica do exerc.6 da aula 21 para a busca de um nome de pokemon dentro do arquivo pokemon.csv 
-
-if(strcasecpm == 1){
-  printf("Pokemon encontrado na lista.")
-  printf("O índice que representa esse pokemon é : %d na lista.)
-}else{
-  printf("Pokemon inexistente, digite novamente um nome para busca.")
-}//else
-
-*/
+void busca_tipo(char tipo[30], Pokedex* pokedex){
+    // pra essa função funcionar eu preciso garantir que 
+    // os espaços já foram retirados;
+    for (int i = 0; i < pokedex->qtd_cadastrados; i++){
+        if (strcmp(pokedex->pokemons[i].tipo1, tipo) == 0 || strcmp(pokedex->pokemons[i].tipo2, tipo) == 0){
+            printf("%s é do tipo %s\n", pokedex->pokemons[i].nome, tipo);
+        }
+    }
+}
