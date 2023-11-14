@@ -97,6 +97,7 @@ void excluir_na_pokedex(int codigo, Pokedex* pokedex){
             pokedex->qtd_cadastrados--;
             // seria interssante reescrever aqui os valores
             for (int l = i; l < pokedex->qtd_cadastrados; l++){
+                muda_pokedex_posicao(l, &pokedex->pokemons[l+1], &pokedex);
                 //colecao[l] = colecao[l+1];
             }
             if (pokedex->tamanho - pokedex->qtd_cadastrados > 10){
