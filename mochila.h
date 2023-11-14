@@ -1,6 +1,7 @@
 
 #ifndef MOCHILA_H
 #define MOCHILA_H
+#include "pokedex.h"
 
 typedef struct{
     /*
@@ -16,4 +17,8 @@ typedef struct{
 }Mochila;
 
 // preciso escrever os metodos
+
+void trocar(int posicao1, int posicao2, Mochila* mochila);
+void inserir(int codigo, Mochila* mochila);
+void visualizar(int posicao, Mochila* mochila);
 #endif

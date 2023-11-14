@@ -17,4 +17,5 @@ void listar_na_pokedex(Pokedex* pokedex);
 void pesquisar_na_pokedex(int codigo, Pokedex* pokedex);
 void alterar_na_pokedex(int codigo, Pokedex* pokedex);
 void excluir_na_pokedex(int codigo, Pokedex* pokedex);
+void muda_pokedex_posicao(int posicao, Pokemon* pokemon, Pokedex* pokedex);
 #endif
