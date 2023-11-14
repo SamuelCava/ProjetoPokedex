@@ -23,4 +23,8 @@ typedef struct {
     int pre_evolucao;
 
 }Pokemon;
+
+void pede_pokemon(Pokemon* pokemon);
+
+
 #endif

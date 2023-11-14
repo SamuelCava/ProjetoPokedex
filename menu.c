@@ -4,6 +4,11 @@
 #include "mochila.h"
 #include "colecao.h"
 #include "pokedex.h"
+#include "pokemon.h"
+
+
+
+
 
 
 int intervalo(int a, int b){
@@ -31,42 +36,8 @@ void menu_pokedex(Pokedex* pokedex){
     switch (opcao){
     case 1:
     // preciso pegar o pokemon aqui dentro
-printf("digite o numero do pokemon: ");
-scanf("%d", pokemon.numero);
-printf("digite o nome do pokemon: ");
-fgets(pokemon.nome, 30, stdin);
-
-
-printf("digite o primeiro tipo do pokemom: ");
-fgets(pokemon.tipo1, 30, stdin);
-
- printf("digite o segundo tipo do pokemon oj NULL");
-fgets(pokemon.tipo2, 30, stdin);
-
-printf("digite o total do pokemon: ");
-scanf("%d", pokemon.total);
-printf("digite o hp do pokemon");
-
-scanf("%d", pokemon.hp);
-
-
-  printf("digite o ataque do pokemon");
-scanf ("%d", pokemon.ataque);
-
-  printf("digite a defesa do pokemkn");
-scanf("%d", pokemon.defesa);
-
-printf("digite o ataque especial do pokemon");
-scanf("%d", pokemon.);
-  printf("");
-
-scanf("%d", pokemon.);
-  printf("");
-
-printf("");
- printf("");
-printf("");
-    Pokemon pokemon;
+        Pokemon pokemon;
+        pede_pokemon(&pokemon);
         inserir_na_pokedex(&pokemon, pokedex);
         break;
     case 2:

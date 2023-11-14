@@ -17,7 +17,30 @@ void inicia_pokedex(Pokedex* pokedex){
     printf("iniciou\n");
 }
 
-
+void muda_pokedex_posicao(int posicao, Pokemon* pokemon, Pokedex* pokedex){
+    pokedex->pokemons[posicao].numero = pokemon->numero;
+    strcpy(pokedex->pokemons[posicao].nome, pokemon->nome);
+    strcpy(pokedex->pokemons[posicao].tipo1, pokemon->tipo1);
+    strcpy(pokedex->pokemons[posicao].tipo2, pokemon->tipo2);
+    strcpy(pokedex->pokemons[posicao].cor, pokemon->cor);
+    //total ,hp  ,ataque ,defesa ,ataque_especial ,defesa_especial ,velocidade
+    // ,geracao ,lendario ,cor     ,altura_m ,peso_kg ,taxa_captura
+    //
+    pokedex->pokemons[posicao].total = pokemon->total;
+    pokedex->pokemons[posicao].hp = pokemon->hp;
+    pokedex->pokemons[posicao].ataque = pokemon->ataque;
+    pokedex->pokemons[posicao].defesa = pokemon->defesa;
+    pokedex->pokemons[posicao].ataque_especial = pokemon->ataque_especial;
+    pokedex->pokemons[posicao].defesa_especial = pokemon->defesa_especial;
+    pokedex->pokemons[posicao].velocidade = pokemon->velocidade;
+    pokedex->pokemons[posicao].geracao = pokemon->geracao;
+    pokedex->pokemons[posicao].lendario = pokemon->lendario;
+    pokedex->pokemons[posicao].altura = pokemon->altura;
+    pokedex->pokemons[posicao].peso = pokemon->peso;
+    pokedex->pokemons[posicao].taxa_captura = pokemon->taxa_captura;
+    pokedex->pokemons[posicao].pre_evolucao = pokemon->pre_evolucao;
+    pokedex->pokemons[posicao].proxima_evolucao = pokemon->proxima_evolucao;
+}
 
 void inserir_na_pokedex(Pokemon* pokemon, Pokedex* pokedex){
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
@@ -33,31 +56,7 @@ void inserir_na_pokedex(Pokemon* pokemon, Pokedex* pokedex){
     }
     pokedex->qtd_cadastrados++;
     // n posso uasr essa linha aqui
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].numero = pokemon->numero;
-    strcpy(pokedex->pokemons[pokedex->qtd_cadastrados-1].nome, pokemon->nome);
-    strcpy(pokedex->pokemons[pokedex->qtd_cadastrados-1].tipo1, pokemon->tipo1);
-    strcpy(pokedex->pokemons[pokedex->qtd_cadastrados-1].tipo2, pokemon->tipo2);
-    strcpy(pokedex->pokemons[pokedex->qtd_cadastrados-1].cor, pokemon->cor);
-    //total ,hp  ,ataque ,defesa ,ataque_especial ,defesa_especial ,velocidade
-    // ,geracao ,lendario ,cor     ,altura_m ,peso_kg ,taxa_captura
-    //
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].total = pokemon->total;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].hp = pokemon->hp;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].ataque = pokemon->ataque;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].defesa = pokemon->defesa;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].ataque_especial = pokemon->ataque_especial;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].defesa_especial = pokemon->defesa_especial;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].velocidade = pokemon->velocidade;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].geracao = pokemon->geracao;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].lendario = pokemon->lendario;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].altura = pokemon->altura;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].peso = pokemon->peso;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].taxa_captura = pokemon->taxa_captura;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].pre_evolucao = pokemon->pre_evolucao;
-    pokedex->pokemons[pokedex->qtd_cadastrados-1].proxima_evolucao = pokemon->proxima_evolucao;
-    printf("inseriu 1\n");
-    printf("pokemon:%s\n", pokemon->nome);
-    printf("%d %d", pokedex->qtd_cadastrados, pokedex->tamanho);
+    muda_pokedex_posicao(pokedex->qtd_cadastrados-1, &pokemon, &pokedex);
 }
 
 void listar_na_pokedex(Pokedex* pokedex){
@@ -84,8 +83,9 @@ void pesquisar_na_pokedex(int codigo, Pokedex* pokedex){
 void alterar_na_pokedex(int codigo, Pokedex* pokedex){
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
         if (pokedex->pokemons[i].numero == codigo){
-            // achei ele
-            printf("achei");
+            Pokemon pokemon;
+            pede_pokemon(&pokemon);
+            muda_pokedex_posicao(i, &pokemon, &pokedex);
         }
     }
 }
