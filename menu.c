@@ -31,7 +31,24 @@ void menu_pokedex(Pokedex* pokedex){
     switch (opcao){
     case 1:
     // preciso pegar o pokemon aqui dentro
-        Pokemon pokemon;
+printf("digite o numero do pokemon: ");
+scanf("%d", pokemon.numero);
+printf("digite o nome do pokemon: ");
+fgets(pokemon.nome, 30, stdin);
+
+
+printf("digite o primeiro tipo do pokemom: ");
+fgets(pokemon.tipo1, 30, stdin);
+
+ printf("digite o segundo tipo do pokemon oj NULL");
+fgets(pokemon.tipo2, 30, stdin);
+
+printf("");
+  printf("");
+printf("");
+ printf("");
+printf("");
+    Pokemon pokemon;
         inserir_na_pokedex(&pokemon, pokedex);
         break;
     case 2:
