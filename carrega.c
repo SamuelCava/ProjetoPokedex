@@ -9,10 +9,23 @@ carregado em um vetor de tamanho dinâmico na primeira abertura do programa.
 Abrir o arquivo.csv, reconhecer o seu tamanho, alocar memória e salvar em binário
 */
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "carrega.h"
+
+void remove_espaco(char* s){
+    int indice_espaco = 0;
+    for (int i = 0; i < 30; i++){
+        if (s[i] == ' '){
+            indice_espaco = i;
+            break;
+        }
+    }
+    s[indice_espaco] = '\0';
+}
+
+
 
 void carregar_csv(){ 
     // o problema aqui é que ainda n pega o tamanho do arquivo csv
@@ -33,8 +46,8 @@ void carregar_csv(){
     int campos_double[2] = {14, 15};
     int campos_str[4] = {1, 2, 3, 13};
     while (fscanf(arquivo, "%[^,\n]%*c", campo)!=EOF){
-        printf("campo%d", campo_atual);
-        printf("%s\n", campo);
+        //printf("campo%d", campo_atual);
+        //printf("%s\n", campo);
         // verifica se é string
         // vamos pular a primeira linha
         //printf("item: %s\n", campo);
@@ -44,13 +57,15 @@ void carregar_csv(){
         int is_str = 0;
         for (int i = 0; i < 4; i++){
             if (campo_atual == campos_str[i]){
+                remove_espaco(&campo);
+                printf("-%s-\n", campo);
                 fwrite(campo, sizeof(char), 30, arqBinario);
                 is_str = 1;
             }
         }
         if (is_str == 0){
             double valor = atof(campo);
-            printf("valor: %f\n", valor);
+            //printf("valor: %f\n", valor);
             if (campo_atual == 14 || campo_atual == 15){
                 fwrite(&valor, sizeof(double), 1, arqBinario);
 
@@ -78,6 +93,6 @@ void carregar_csv(){
 }
 
 int main(){
-    carregar_csv(20);
+    carregar_csv();
     return 0;
 }
