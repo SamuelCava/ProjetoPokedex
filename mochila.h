@@ -18,7 +18,7 @@ typedef struct{
 
 // preciso escrever os metodos
 
-void trocar(int posicao1, int posicao2, Mochila* mochila);
-void inserir(int codigo, Mochila* mochila);
-void visualizar(int posicao, Mochila* mochila);
+void trocar_mochila(int posicao1, int posicao2, Mochila* mochila);
+void inserir_mochila(int codigo, Mochila* mochila);
+void visualizar_mochila(int posicao, Mochila* mochila);
 #endif

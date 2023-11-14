@@ -116,6 +116,17 @@ int menu_mochila(Mochila* mochila){
     printf("[1] mudar pokemon\n");
     printf("[2] ver pokemon\n");
     int opcao = intervalo(1, qtd_opcoes);
+    switch (opcao){
+    case 2:
+        printf("digite a posicao que deseja visualizar: ");
+        int posicao;
+        scanf("%d", &posicao);
+        visualizar_mochila(posicao, &mochila);
+        break;
+    
+    default:
+        break;
+    }
     return opcao;
 }
 
