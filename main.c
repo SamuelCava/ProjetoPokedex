@@ -62,6 +62,16 @@ um arquivo texto no formato .CSV (separados por v
 // pesquisar por geração
 // exportar para csv no menu
 
+/**
+ * @file main.c
+ * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
+ * @brief Arquivo responsavel por executar o jogo
+ * @version 0.1
+ * @date 2023-11-14
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -74,6 +84,11 @@ um arquivo texto no formato .CSV (separados por v
 #include "sair.h"
 #include "abre_arquivo.h"
 
+/**
+ * @brief Função responsável por executar o programa
+ * 
+ * @return int Valor de retorno para encerrar a execução da função main
+ */
 int main(){
 	Pokedex pokedex;
 	Mochila mochila;

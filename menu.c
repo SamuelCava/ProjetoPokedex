@@ -1,3 +1,14 @@
+/**
+ * @file menu.c
+ * @author  Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
+ * @brief Arquivo responsavel por armazenar as funções de menu do jogo
+ * @version 0.1
+ * @date 2023-11-14
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "menu.h"
@@ -6,11 +17,13 @@
 #include "pokedex.h"
 #include "pokemon.h"
 
-
-
-
-
-
+/**
+ * @brief Função responsável por restringir a entrada de opção digitada pelo usuário, dentro do intervalo de opções disponíveis
+ * 
+ * @param a 
+ * @param b 
+ * @return int 
+ */
 int intervalo(int a, int b){
     // fica pedindo o inteiro até que a <= x <= b;
     int x;
@@ -20,6 +33,12 @@ int intervalo(int a, int b){
     }
     return x;
 }
+
+/**
+ * @brief Função responsável por exibir menu de opções da pokedex
+ * 
+ * @param pokedex Passa como argumento da função, um ponteiro para tipo struct Pokedex
+ */
 // verificado
 void menu_pokedex(Pokedex* pokedex){
     // (inserir/listar/pesquisar/alterar/exclui
@@ -67,6 +86,12 @@ void menu_pokedex(Pokedex* pokedex){
     return;
 }
 
+/**
+ * @brief Função responsável por exibir menu de opções da coleção
+ * 
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ * @param pokedex Passa como argumento da função, um ponteiro para tipo struct Pokedex
+ */
 // verificado
 void menu_colecao(Colecao* colecao, Pokedex* pokedex){
     int qtd_opcoes = 5;
@@ -111,6 +136,12 @@ void menu_colecao(Colecao* colecao, Pokedex* pokedex){
     return;
 }
 
+/**
+ * @brief Função responsável por exibir menu de opções da mochila
+ * 
+ * @param mochila Passa como argumento da função, um ponteiro para tipo struct Mochila
+ * @return int 
+ */
 int menu_mochila(Mochila* mochila){
     int qtd_opcoes = 2;
     printf("[1] mudar pokemon\n");
@@ -130,6 +161,11 @@ int menu_mochila(Mochila* mochila){
     return opcao;
 }
 
+/**
+ * @brief Função responsável por exibir menu de opções inicial
+ * 
+ * @return int Valor de retorno para indicar a opção escolhida
+ */
 int menu_principal(){
     int qtd_opcoes = 7;
     printf("[1] pokedex\n");

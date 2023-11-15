@@ -1,3 +1,14 @@
+/**
+ * @file abre_arquivo.c
+ * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
+ * @brief Arquivo responsável por ler as informações registradas na coleção, mochila e pokedex durante o jogo
+ * @version 0.1
+ * @date 2023-11-14
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -5,6 +16,12 @@
 #include "mochila.h"
 #include "pokemon.h"
 #include "colecao.h"
+
+/**
+ * @brief Função responsável por ler as informações registradas no arquivo mochila
+ * 
+ * @param mochila Passa como argumento da função, um ponteiro para tipo struct Mochila
+ */
 
 void abre_mochila(Mochila* mochila){
     // inicializar mochila com qtd = 0 se n tiver o mochila.dat
@@ -23,6 +40,12 @@ void abre_mochila(Mochila* mochila){
         mochila->codigos_pokemon[i] = codigo;
     }
 }
+
+/**
+ * @brief Função responsável por ler as informações registradas no arquivo pokedex
+ * 
+ * @param pokedex Passa como argumento da função, um ponteiro para tipo struct Pokedex
+ */
 
 void abre_pokedex(Pokedex* pokedex){
     FILE *arq;
@@ -61,6 +84,12 @@ void abre_pokedex(Pokedex* pokedex){
     }
 }
 
+/**
+ * @brief Função responsável por ler as informações registradas no arquivo coleção
+ * 
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ */
+
 void abre_colecao(Colecao* colecao){
     FILE *arq;
     arq = fopen("colecao.dat", "rb");
@@ -75,16 +104,4 @@ void abre_colecao(Colecao* colecao){
         fread(&codigo, sizeof(int), 1, arq);
         inserir_colecao(codigo, colecao);
     }
-}
-int main(){
-    Pokedex pokedex;
-    inicia_pokedex(&pokedex);
-    abre_pokedex(&pokedex);
-    printf("%d", pokedex.qtd_cadastrados);
-    for (int i = 0; i < pokedex.qtd_cadastrados; i++){
-        printf("a%d %s %d \n", pokedex.pokemons[i].numero, pokedex.pokemons[i].nome, pokedex.pokemons[i].ataque);
-
-
-    }
-    return 0;
 }

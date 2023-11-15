@@ -1,8 +1,23 @@
+/**
+ * @file colecao.c
+ * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
+ * @brief Arquivo responsável por armazenar as funções usadas para a coleção
+ * @version 0.1
+ * @date 2023-11-14
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <stdlib.h>
 #include <stdio.h>
 #include "colecao.h"
 #include "pokedex.h"
 
+/**
+ * @brief Função responsável por iniciar a coleção
+ * 
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ */
 void inicia_colecao(Colecao* colecao){
     colecao->tamanho = 10;
     colecao->codigo_capturados = (int*) calloc(colecao->tamanho, sizeof(int));
@@ -11,7 +26,12 @@ void inicia_colecao(Colecao* colecao){
         exit(1);
     }
 }
-
+/**
+ * @brief Função responsável por inserir um pokemon na coleção
+ * 
+ * @param codigo Passa como argumento da função, um numero do tipo int para identificar o código/índice que representa o pokemon
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ */
 void inserir_colecao(int codigo, Colecao* colecao){
     for (int i = 0; i < colecao->capturados; i++){
         if (colecao->codigo_capturados[i] == codigo){
@@ -27,7 +47,12 @@ void inserir_colecao(int codigo, Colecao* colecao){
     colecao->capturados++;
     colecao->codigo_capturados[colecao->capturados-1] = codigo;
 }
-
+/**
+ * @brief Função responsável por listar os pokemons na coleção
+ * 
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ * @param pokedex Passa como argumento da função, um ponteiro para tipo struct Pokedex
+ */
 // preciso escrever essa função pesquisa
 void listar_colecao(Colecao* colecao, Pokedex* pokedex){
     return;
@@ -36,6 +61,12 @@ void listar_colecao(Colecao* colecao, Pokedex* pokedex){
     }
 }
 
+/**
+ * @brief Função responsável por pesquisar um pokemon na coleção
+ * 
+ * @param codigo Passa como argumento da função, um numero do tipo int para identificar o código/índice que representa o pokemon
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ */
 // talvez deixar essa função mais legal 
 void pesquisar_colecao(int codigo, Colecao* colecao){
     for (int i = 0; i < colecao->capturados; i++){
@@ -46,6 +77,12 @@ void pesquisar_colecao(int codigo, Colecao* colecao){
     }
 }
 
+/**
+ * @brief Função responsável por alterar um pokemon na coleção
+ * 
+ * @param codigo Passa como argumento da função, um numero do tipo int para identificar o código/índice que representa o pokemon
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ */
 // preciso ver como vou fazer isso tbm
 void alterar_colecao(int codigo, Colecao* colecao){
     for (int i = 0; i < colecao->capturados; i++){
@@ -56,7 +93,12 @@ void alterar_colecao(int codigo, Colecao* colecao){
     }
 }
 
-
+/**
+ * @brief Função responsável por excluir um pokemon na coleção
+ * 
+ * @param codigo Passa como argumento da função, um numero do tipo int para identificar o código/índice que representa o pokemon
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ */
 void excluir_colecao(int codigo, Colecao* colecao){
     for (int i = 0; i < colecao->capturados; i++){
         if (colecao->codigo_capturados[i] == codigo){

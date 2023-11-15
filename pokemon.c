@@ -1,8 +1,23 @@
+/**
+ * @file pokemon.c
+ * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
+ * @brief Arquivo responsável por armazenar função que faz o registro de um novo pokemon
+ * @version 0.1
+ * @date 2023-11-14
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "pokemon.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * @brief Função responsável por registrar um novo pokemon no jogo
+ * 
+ * @param pokemon Passa como argumento da função, um ponteiro para tipo struct Pokemon
+ */
 void pede_pokemon(Pokemon* pokemon){
     printf("digite o numero do pokemon: ");
     scanf("%d", &pokemon->numero);

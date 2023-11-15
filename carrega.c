@@ -9,24 +9,27 @@ carregado em um vetor de tamanho dinâmico na primeira abertura do programa.
 Abrir o arquivo.csv, reconhecer o seu tamanho, alocar memória e salvar em binário
 */
 
+
+/**
+ * @file carrega.c
+ * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
+ * @brief Arquivo responsavel por carregar os dados quando entrar no jogo
+ * @version 0.1
+ * @date 2023-11-14
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "carrega.h"
 
-void remove_espaco(char* s){
-    int indice_espaco = 0;
-    for (int i = 0; i < 30; i++){
-        if (s[i] == ' '){
-            indice_espaco = i;
-            break;
-        }
-    }
-    s[indice_espaco] = '\0';
-}
-
-
-
+/**
+ * @brief Função responsável por fazer a leitura dos dados do arquivo .csv na primeira abertura do programa
+ * 
+ */
 void carregar_csv(){ 
     // o problema aqui é que ainda n pega o tamanho do arquivo csv
     // preciso tbm remover os espaços extras das strings
@@ -92,7 +95,19 @@ void carregar_csv(){
     
 }
 
-int main(){
-    carregar_csv();
-    return 0;
+/**
+ * @brief Função responsável por remover os caracteres de espaço entre as informações do arquivo .csv lido, isto é, os dados de cada atributo dos pokemons
+ * 
+ * @param s Passa como argumento da função, um ponteiro para tipo char
+ */
+
+void remove_espaco(char* s){
+    int indice_espaco = 0;
+    for (int i = 0; i < 30; i++){
+        if (s[i] == ' '){
+            indice_espaco = i;
+            break;
+        }
+    }
+    s[indice_espaco] = '\0';
 }

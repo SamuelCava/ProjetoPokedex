@@ -7,13 +7,30 @@ recarregados novamente ao iniciar. Caso os arquivos não existam, eles devem ser
 criados e uma mensagem de boas vindas deve ser apresentada ao usuário;
 
 */
+
+/**
+ * @file sair.c
+ * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
+ * @brief Arquivo responsável por armazenar função que salva todos os dados do jogo. Preparando para finalizar o programa.
+ * @version 0.1
+ * @date 2023-11-14
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "mochila.h"
 #include "pokedex.h"
 #include "colecao.h"
 
-
+/**
+ * @brief Função responsável por salvar todos os dados para finalizar o jogo. 
+ * 
+ * @param mochila Passa como argumento da função, um ponteiro para tipo struct Mochila
+ * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
+ * @param pokedex Passa como argumento da função, um ponteiro para tipo struct Pokedex
+ */
 void salva(Mochila* mochila, Colecao* colecao, Pokedex* pokedex){
     FILE *arq = fopen("mochila.dat","wb");
     if(arq == NULL){
