@@ -142,7 +142,7 @@ void menu_colecao(Colecao* colecao, Pokedex* pokedex){
  * @param mochila Passa como argumento da função, um ponteiro para tipo struct Mochila
  * @return int 
  */
-int menu_mochila(Mochila* mochila){
+int menu_mochila(Mochila* mochila, Pokedex* pokedex){
     int qtd_opcoes = 2;
     printf("[1] mudar pokemon\n");
     printf("[2] ver pokemon\n");
@@ -152,7 +152,7 @@ int menu_mochila(Mochila* mochila){
         printf("digite a posicao que deseja visualizar: ");
         int posicao;
         scanf("%d", &posicao);
-        visualizar_mochila(posicao, &mochila);
+        visualizar_mochila(posicao, mochila, pokedex);
         break;
     
     default:

@@ -70,6 +70,7 @@ void muda_pokedex_posicao(int posicao, Pokemon* pokemon, Pokedex* pokedex){
 void inserir_na_pokedex(Pokemon* pokemon, Pokedex* pokedex){
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
         if (pokedex->pokemons[i].numero == pokemon->numero){
+            printf("ja existe\n");
             return;
             // nesse caso eu já tenho aquele pokemon cadastrado
         }
@@ -81,7 +82,7 @@ void inserir_na_pokedex(Pokemon* pokemon, Pokedex* pokedex){
     }
     pokedex->qtd_cadastrados++;
     // n posso uasr essa linha aqui
-    muda_pokedex_posicao(pokedex->qtd_cadastrados-1, &pokemon, &pokedex);
+    muda_pokedex_posicao(pokedex->qtd_cadastrados-1, pokemon, pokedex);
 }
 
 /**
@@ -95,7 +96,7 @@ void listar_na_pokedex(Pokedex* pokedex){
         // seria interessante usar outro arquivo pra cuidar dessas buscas, isso tbm é comum ao outro coisa la
         // da mochila
         // quando no ponto eu troco por -> não funciona
-        printf("nome: %s", pokedex->pokemons[i].nome);
+        printf("nome: %s\n", pokedex->pokemons[i].nome);
     }
 }
 
@@ -126,7 +127,7 @@ void alterar_na_pokedex(int codigo, Pokedex* pokedex){
         if (pokedex->pokemons[i].numero == codigo){
             Pokemon pokemon;
             pede_pokemon(&pokemon);
-            muda_pokedex_posicao(i, &pokemon, &pokedex);
+            muda_pokedex_posicao(i, &pokemon, pokedex);
         }
     }
 }
@@ -143,7 +144,7 @@ void excluir_na_pokedex(int codigo, Pokedex* pokedex){
             pokedex->qtd_cadastrados--;
             // seria interssante reescrever aqui os valores
             for (int l = i; l < pokedex->qtd_cadastrados; l++){
-                muda_pokedex_posicao(l, &pokedex->pokemons[l+1], &pokedex);
+                muda_pokedex_posicao(l, &pokedex->pokemons[l+1], pokedex);
                 //colecao[l] = colecao[l+1];
             }
             if (pokedex->tamanho - pokedex->qtd_cadastrados > 10){

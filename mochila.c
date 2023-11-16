@@ -8,9 +8,10 @@
  * @copyright Copyright (c) 2023
  * 
  */
-#include "mochila.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "mochila.h"
+
 
 /**
  * @brief Função responsável por substituir um pokemon por outro na mochila
@@ -51,5 +52,5 @@ void inserir_mochila(int codigo, Mochila* mochila){
  * @param pokedex Passa como argumento da função, um ponteiro para tipo struct Pokedex
  */
 void visualizar_mochila(int posicao, Mochila* mochila, Pokedex* pokedex){
-    pesquisar_na_pokedex(mochila->codigos_pokemon[posicao], &pokedex);
+    pesquisar_na_pokedex(mochila->codigos_pokemon[posicao],pokedex);
 }

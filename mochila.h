@@ -20,5 +20,5 @@ typedef struct{
 
 void trocar_mochila(int posicao1, int posicao2, Mochila* mochila);
 void inserir_mochila(int codigo, Mochila* mochila);
-void visualizar_mochila(int posicao, Mochila* mochila);
+void visualizar_mochila(int posicao, Mochila* mochila, Pokedex* pokedex);
 #endif

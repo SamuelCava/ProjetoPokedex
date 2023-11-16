@@ -1,3 +1,4 @@
+
 /**
  * @file colecao.c
  * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
@@ -33,6 +34,7 @@ void inicia_colecao(Colecao* colecao){
  * @param colecao Passa como argumento da função, um ponteiro para tipo struct Colecao
  */
 void inserir_colecao(int codigo, Colecao* colecao){
+    printf("x");
     for (int i = 0; i < colecao->capturados; i++){
         if (colecao->codigo_capturados[i] == codigo){
             return;
@@ -55,9 +57,13 @@ void inserir_colecao(int codigo, Colecao* colecao){
  */
 // preciso escrever essa função pesquisa
 void listar_colecao(Colecao* colecao, Pokedex* pokedex){
-    return;
     for (int i = 0; i < colecao->capturados; i++){
-        //pesquisa(colecao.codigo_capturados[i], pokedex)
+        for (int j = 0; j < pokedex->qtd_cadastrados; j++){
+            if(pokedex->pokemons[j].numero == colecao->codigo_capturados[i]){
+                printf("nome: %s\n", pokedex->pokemons[j].nome);
+                break;
+            }
+        }
     }
 }
 

@@ -36,6 +36,10 @@ void carregar_csv(){
     FILE *arquivo;
     arquivo = fopen("pokedex.csv", "r");
     FILE *arqBinario;
+    
+    if (fopen("pokedex.dat", "r") != NULL){
+        return;
+    }
     arqBinario = fopen("pokedex.dat", "wb");
     if (arquivo == NULL || arqBinario == NULL){
         perror("Erro para abrir o arquivo.");      
@@ -60,7 +64,7 @@ void carregar_csv(){
         int is_str = 0;
         for (int i = 0; i < 4; i++){
             if (campo_atual == campos_str[i]){
-                remove_espaco(&campo);
+                remove_espaco(campo);
                 printf("-%s-\n", campo);
                 fwrite(campo, sizeof(char), 30, arqBinario);
                 is_str = 1;
@@ -91,6 +95,13 @@ void carregar_csv(){
         
     }
     fclose(arqBinario);
+    arqBinario = fopen("mochila.dat", "wb");
+    int zero = 0;
+    fwrite(&zero, sizeof(int), 1, arqBinario);
+    fclose(arqBinario);
+    arqBinario = fopen("colecao.dat", "wb");
+    fwrite(&zero, sizeof(int), 1, arqBinario);
+    fclose(arqBinario);
     fclose(arquivo);
     
 }
@@ -101,7 +112,7 @@ void carregar_csv(){
  * @param s Passa como argumento da função, um ponteiro para tipo char
  */
 
-void remove_espaco(char* s){
+void remove_espaco(char s[]){
     int indice_espaco = 0;
     for (int i = 0; i < 30; i++){
         if (s[i] == ' '){

@@ -25,6 +25,7 @@
 
 void abre_mochila(Mochila* mochila){
     // inicializar mochila com qtd = 0 se n tiver o mochila.dat
+    mochila->pokemons_mochila = 0;
     FILE *arq;
     arq = fopen("mochila.dat", "rb");
     if (arq == NULL){
@@ -39,6 +40,7 @@ void abre_mochila(Mochila* mochila){
         fread(&codigo, sizeof(int), 1, arq);
         mochila->codigos_pokemon[i] = codigo;
     }
+    
 }
 
 /**
@@ -48,6 +50,7 @@ void abre_mochila(Mochila* mochila){
  */
 
 void abre_pokedex(Pokedex* pokedex){
+    inicia_pokedex(pokedex);
     FILE *arq;
     arq = fopen("pokedex.dat", "rb");
      if (arq == NULL){
@@ -61,7 +64,6 @@ void abre_pokedex(Pokedex* pokedex){
     Pokemon pokemon;
     while (fread(&numero, sizeof(int), 1, arq) == 1){
         pokemon.numero = numero;
-        printf("n:%d\n", numero);
         fread(pokemon.nome, sizeof(char), 30, arq);
         fread(pokemon.tipo1, sizeof(char), 30, arq);
         fread(pokemon.tipo2, sizeof(char), 30, arq);
@@ -91,6 +93,7 @@ void abre_pokedex(Pokedex* pokedex){
  */
 
 void abre_colecao(Colecao* colecao){
+    inicia_colecao(colecao);
     FILE *arq;
     arq = fopen("colecao.dat", "rb");
     if (arq == NULL){
