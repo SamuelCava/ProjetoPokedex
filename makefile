@@ -1,5 +1,7 @@
 # Arquivo para compilar o projeto em ordem decrescente de dependências
 
+# Adicionar para as novas funções criadas busca_pokemon e captura.c 
+
 main: main.o abre_arquivo.o carrega.o colecao.o menu.o mochila.o pokedex.o pokemon.o sair.o
 	@echo "Gerando arquivo executável"
 	gcc main.o abre_arquivo.o carrega.o colecao.o menu.o mochila.o pokedex.o pokemon.o sair.o -o main
