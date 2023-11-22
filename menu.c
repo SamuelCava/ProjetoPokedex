@@ -106,9 +106,9 @@ void menu_colecao(Colecao* colecao, Pokedex* pokedex){
 
     switch (opcao){
     case 1:
-        printf("Digite cógido do pokemon: ");
+        printf("Digite cógido do pokemon para tentar captura: ");
         scanf("%d", &codigo_pokemon);
-        inserir_colecao(codigo_pokemon, colecao);
+        captura_pokemon(codigo_pokemon);
         break;
     case 2:
         listar_colecao(colecao, pokedex);
