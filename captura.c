@@ -1,7 +1,7 @@
-#include "mochila.h"
 #include "colecao.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "captura.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -14,11 +14,8 @@ typedef struct{
 }Pokebolas;
 
 
-void captura_pokemon(int codigo_pokemon){
-    
-    Pokedex* pokedex;
-    Colecao* colecao;
-    Pokemon* pokemon;
+void captura_pokemon(int codigo_pokemon, Pokedex* pokedex, Colecao* colecao, Pokemon pokemon){
+
     Pokebolas pokebolas;
 
     pokebolas.pokebolas_comum = 350;

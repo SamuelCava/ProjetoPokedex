@@ -16,6 +16,7 @@
 #include "colecao.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "captura.h"
 
 /**
  * @brief Função responsável por restringir a entrada de opção digitada pelo usuário, dentro do intervalo de opções disponíveis
@@ -56,7 +57,7 @@ void menu_pokedex(Pokedex* pokedex){
     switch (opcao){
     case 1:
     // preciso pegar o pokemon aqui dentro
-        Pokemon* pokemon;
+        Pokemon pokemon;
         pede_pokemon(&pokemon);
         inserir_na_pokedex(&pokemon, pokedex);
         break;
@@ -108,9 +109,10 @@ void menu_colecao(Colecao* colecao, Pokedex* pokedex){
 
     switch (opcao){
     case 1:
+        Pokemon pokemon;
         printf("Digite cógido do pokemon para tentar captura: ");
         scanf("%d", &codigo_pokemon);
-        captura_pokemon(codigo_pokemon);
+        captura_pokemon(codigo_pokemon, pokedex, colecao, pokemon);
         break;
     case 2:
         listar_colecao(colecao, pokedex);
