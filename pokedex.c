@@ -27,7 +27,7 @@ void inicia_pokedex(Pokedex* pokedex){
         printf("memoria insuficiente\n");
         exit(1);
     }
-    printf("iniciou\n");
+    printf("Iniciou o jogo e a pokedex =)\n");
 }
 
 /**
@@ -70,7 +70,7 @@ void muda_pokedex_posicao(int posicao, Pokemon* pokemon, Pokedex* pokedex){
 void inserir_na_pokedex(Pokemon* pokemon, Pokedex* pokedex){
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
         if (pokedex->pokemons[i].numero == pokemon->numero){
-            printf("ja existe\n");
+            printf("Ja existe um pokemon neste registro\n");
             return;
             // nesse caso eu já tenho aquele pokemon cadastrado
         }
@@ -96,7 +96,7 @@ void listar_na_pokedex(Pokedex* pokedex){
         // seria interessante usar outro arquivo pra cuidar dessas buscas, isso tbm é comum ao outro coisa la
         // da mochila
         // quando no ponto eu troco por -> não funciona
-        printf("nome: %s\n", pokedex->pokemons[i].nome);
+        printf("O nome do pokemon é: %s\n", pokedex->pokemons[i].nome);
     }
 }
 
@@ -110,8 +110,8 @@ void pesquisar_na_pokedex(int codigo, Pokedex* pokedex){
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
         if (pokedex->pokemons[i].numero == codigo){
             // achei ele
-            printf("achei\n");
-            printf("nome: %s\n", pokedex->pokemons[i].nome);
+            printf("Pokemonb encontrado\n");
+            printf("O nome do pokemon é: %s\n", pokedex->pokemons[i].nome);
         }
     }
 }

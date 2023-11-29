@@ -23,8 +23,6 @@ void pede_pokemon(Pokemon* pokemon){
     printf("digite o numero do pokemon: ");
     scanf("%d", &pokemon->numero);
 
-    
-
     printf("digite o nome do pokemon: ");
     setbuf(stdin, NULL);
     fgets(pokemon->nome, 29, stdin);
@@ -77,4 +75,4 @@ void pede_pokemon(Pokemon* pokemon){
 
     printf("digite o codigo do pokemon que é a proxima evolucao desse:");
     scanf("%d", &pokemon->proxima_evolucao);
-}
+}// funcao pede pokemon
