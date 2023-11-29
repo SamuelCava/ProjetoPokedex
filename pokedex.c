@@ -127,7 +127,7 @@ void alterar_na_pokedex(int codigo, Pokedex* pokedex){
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
         if (pokedex->pokemons[i].numero == codigo){
             Pokemon pokemon;
-            pede_pokemon(&pokemon);
+            pede_pokemon(&pokemon, 0);
             muda_pokedex_posicao(i, &pokemon, pokedex);
         }
     }
