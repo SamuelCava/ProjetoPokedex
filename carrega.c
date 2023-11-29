@@ -40,6 +40,7 @@ void carregar_csv(){
     if (fopen("pokedex.dat", "r") != NULL){
         return;
     }
+    printf("Seja bem vindo\n");
     arqBinario = fopen("pokedex.dat", "wb");
     if (arquivo == NULL || arqBinario == NULL){
         perror("Erro para abrir o arquivo.");      
