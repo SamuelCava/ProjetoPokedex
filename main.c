@@ -14,34 +14,6 @@ um arquivo texto no formato .CSV (separados por vírgula);
 
 */
 
-
-
-
-/*
-◦
-// string formatada
-
-fscanf depois tudo fread fwrite
-// deixar para fazer as alterações no hd no final
-feito: struct pokemon
-Deverá permitir cadastrar
-(inserir/listar/pesquisar/alterar/excluir) os Pokémons disponíveis para serem capturados.
-Essa relação deve aumentar e diminuir dinamicamente.
-
-◦ Deverá apresentar um menu inicial com as opções disponíveis. Caso necessário,
-submenus. A interface deverá ser fácil e intuitiva, seja criativo, utilize cores e beeps :) .
-Trate erros do usuário com mensagens e alertas;
-
-
-◦ 
-◦ O sistema deverá exibir no menu uma opção de exportar ao dados das estruturas em
-um arquivo texto no formato .CSV (separados por v
-
-*/
-// fclose(arq);
-// free()
-// exportar para csv no menu
-
 /**
  * @file main.c
  * @author Leonardo Dal Poz Cardoso (lcardoso.2005@alunos.utfpr.edu.br) e Samuel Assunção Cavalherie (samuelcavalherie@alunos.utfpr.edu.br)
@@ -65,6 +37,8 @@ um arquivo texto no formato .CSV (separados por v
 #include "abre_arquivo.h"
 #include "funcoes_raylib.h"
 #include "batalha.h"
+#include "captura.h"
+
 /**
  * @brief Função responsável por executar o programa
  * 
@@ -77,10 +51,8 @@ int main(){
 	Pokedex pokedex;
 	Mochila mochila;
 	Colecao colecao;
-    Batalha batalha;
 	// verifica se já existe o arquivo e se n existir cria a pokedex em binario
 	carregar_csv();
-	printf("teste");
 	abre_colecao(&colecao);
 	abre_mochila(&mochila);
 	abre_pokedex(&pokedex);
@@ -88,6 +60,7 @@ int main(){
     const int width = 800;
 	const int height = 450;
 	InitWindow(width, height, "pokemon");
+	
     int menu = 0;
     int opcao = 0;
     const int qtd_menu_princial = 8;
@@ -129,7 +102,7 @@ int main(){
                 mostra_itens(qtd_item);
                 break;
             case BATALHA:
-                inicia_batalha(&pokedex, &mochila, &batalha);
+                batalha_par_impar(&pokedex, &mochila, qtd_item);
                 break;
             case BUSCA:
                 menu_raylib(comeco, &opcao, qtd_menu_busca, fontsz, menu_busca_strings);
@@ -155,12 +128,10 @@ int main(){
                 menu_mochila(&mochila, &pokedex, opcao);
                 break;
             case ITENS:
-                
-                break;
-            case BATALHA:
-                
+                // compra items
                 break;
             case BUSCA:
+			
                 break;
 
             default:

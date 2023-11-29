@@ -152,21 +152,3 @@ int menu_mochila(Mochila* mochila, Pokedex* pokedex, int opcao){
     }
     return opcao;
 }
-
-/**
- * @brief Função responsável por exibir menu de opções inicial
- * 
- * @return int Valor de retorno para indicar a opção escolhida
- */
-int menu_principal(){
-    int qtd_opcoes = 7;
-    printf("[1] pokedex\n");
-    printf("[2] colecao\n");
-    printf("[3] mochila\n");
-    printf("[4] exibir itens\n");
-    printf("[5] batalha pokemon\n");
-    printf("[6] salvar progresso\n");
-    printf("[7] sair\n");
-    int opcao = intervalo(1, qtd_opcoes);
-    return opcao;
-}
