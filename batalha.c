@@ -6,13 +6,18 @@
 #include <string.h>
 #include<time.h>   
 
+void pocao(Pokemon* pokemon, int vida){
+    pokemon->hp += vida;
+}
+
+
 void batalha_par_impar(Mochila* mochila,Pokedex* pokedex){
     
     Pokemon pokemons_jogador; 
     Pokemon pokemons_adversario;
 
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
-            for (int j = 0; j < 6; j++){
+            for (int j = 0; j < mochila->pokemons_mochila; j++){
                 
             if (pokedex->pokemons[i].numero == mochila->codigos_pokemon[j]){
 
