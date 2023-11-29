@@ -45,22 +45,22 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
         srand((unsigned)time(NULL));
         num_adversario = 1 + (rand() % 100);
 
-        printf("Deseja curar ou batalha? [1] Curar [2] Batalha\n);
+        printf("Deseja curar ou batalha? [1] Curar [2] Batalha\n");
         scanf("%d", &menu_batalha);
 
-        switch(&menu_batalha){
+        switch(menu_batalha){
             case 1:
-                mostrar_itens(qtd)
+               // mostrar_itens(qtd);
                 break;
             case 2:
             
-            printf("escolha Par ou ímpar:\n [1] Par\n [2] Ímpar\n");
+            printf("escolha Par ou ímpar:\n [1] Ímpar\n [2] Par\n");
             scanf("%d", &escolha_jogador);
     
             printf("Digite um número: ");
             scanf("%d", &num_jogador);
     
-            if ((num_adversario + num_jogador) % 2 == 0){
+            if ((num_adversario + num_jogador) % 2 == (escolha_jogador % 2)){
                 printf("Ganhou a vez. Você ataca!\n");
                 if(escolha_jogador == 1){
                     if (bonus_jogador <= 2){
@@ -88,11 +88,5 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
         }else{
             printf("Looser!!! Tente a próxima guerreiro.\n");
         }//else
-                
-                break;
-            default;
-                break;
-        }//switch
-
 
 }// função batalha_par_impar
