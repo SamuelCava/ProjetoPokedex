@@ -76,3 +76,27 @@ void pede_pokemon(Pokemon* pokemon){
     printf("digite o codigo do pokemon que é a proxima evolucao desse:");
     scanf("%d", &pokemon->proxima_evolucao);
 }// funcao pede pokemon
+
+
+void copia_pokemon(Pokemon* destino, Pokemon* fonte){
+    destino->numero;
+    // mudar esse 20
+    strcpy(destino->nome, fonte->nome);
+    strcpy(destino->tipo1, fonte->tipo1);
+    strcpy(destino->tipo2, fonte->tipo2);
+    destino->total = fonte->total;
+    destino->hp = fonte->hp;
+    destino->ataque = fonte->ataque;
+    destino->defesa = fonte->defesa;
+    destino->ataque_especial = fonte->ataque_especial;
+    destino->defesa_especial = fonte->defesa_especial;
+    destino->velocidade = fonte->velocidade;
+    destino->geracao = fonte->geracao;
+    destino->lendario = fonte->lendario ; // na verdade é bool aqui
+    strcpy(destino->cor, fonte->cor);
+    destino->altura = fonte->altura;
+    destino->peso = fonte->peso;
+    destino->taxa_captura = fonte->taxa_captura;
+    destino->proxima_evolucao = fonte->proxima_evolucao;
+    destino->pre_evolucao = fonte->pre_evolucao;
+}
