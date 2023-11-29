@@ -28,7 +28,9 @@
 int intervalo(int a, int b){
     // fica pedindo o inteiro até que a <= x <= b;
     int x;
+    printf("Digite a sua opção: ");
     scanf("%d", &x);
+    printf("\n");
     while (!(a <= x && x <= b)){
         scanf("%d", &x);
     }
@@ -146,6 +148,7 @@ void menu_colecao(Colecao* colecao, Pokedex* pokedex){
  * @param mochila Passa como argumento da função, um ponteiro para tipo struct Mochila
  * @return int 
  */
+/*
 int menu_mochila(Mochila* mochila, Pokedex* pokedex){
     int qtd_opcoes = 2;
     printf("[1] inserir/mudar pokemon\n");
@@ -162,7 +165,7 @@ int menu_mochila(Mochila* mochila, Pokedex* pokedex){
         printf("digite a posicao do pokemon na colecao que deseja inserir na mochila: ");
         int posicao;
         scanf("%d", &posicao);
-        muda_pokedex_posicao(posicao, mochila);
+        muda_pokedex_posicao(posicao, mochila, pokedex);
 
     case 3:
         printf("digite a posicao que deseja visualizar: ");
@@ -176,7 +179,11 @@ int menu_mochila(Mochila* mochila, Pokedex* pokedex){
     }
     return opcao;
 }
+*/
 
+int menu_mochila(Mochila* mochila, Pokedex* pokedex){
+    return 0;
+}
 /**
  * @brief Função responsável por exibir menu de opções inicial
  * 

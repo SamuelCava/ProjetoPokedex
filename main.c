@@ -76,13 +76,14 @@ int main(){
 	Colecao colecao;
 	// verifica se já existe o arquivo e se n existir cria a pokedex em binario
 	carregar_csv();
-	printf("teste");
+	printf("Abrindo os seus arquivos de Pokedex, Coleção e mochila...\n");
 	abre_colecao(&colecao);
 	abre_mochila(&mochila);
 	abre_pokedex(&pokedex);
 	int gameloop = 1;
-	printf("começando\n");
+	printf("começando o seu game\n");
 	while (gameloop == 1){
+		printf("Menu inicial.\n");
 		int opcao = menu_principal();
 		switch (opcao){
 		case 1:

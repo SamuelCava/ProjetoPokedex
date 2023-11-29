@@ -28,11 +28,11 @@ void pede_pokemon(Pokemon* pokemon){
     fgets(pokemon->nome, 29, stdin);
     pokemon->nome[strcspn(pokemon->nome,"\n")]='\0';
 
-    printf("digite o primeiro tipo do pokemom: ");
+    printf("digite o primeiro tipo do pokemon: ");
     fgets(pokemon->tipo1, 29, stdin);
     pokemon->tipo1[strcspn(pokemon->tipo1,"\n")]='\0';  
     setbuf(stdin, NULL);
-    printf("digite o segundo tipo do pokemon ou NULL");
+    printf("digite o segundo tipo do pokemon ou NULL: ");
     fgets(pokemon->tipo2, 29, stdin);
     pokemon->tipo2[strcspn(pokemon->tipo2,"\n")]='\0';  
     setbuf(stdin, NULL);

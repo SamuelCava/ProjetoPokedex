@@ -56,6 +56,7 @@ void captura_pokemon(int codigo_pokemon, Pokedex* pokedex, Colecao* colecao, Pok
                     tentar = 0;
                 }else{
                     printf("Não foi desta vez.\n Tentar novamente: [1] Sim [0] Não\n");
+                    printf("Resposta: ");
                     scanf("%d", &tentar);
                 }
                 

@@ -35,8 +35,8 @@ void trocar_mochila(int posicao1, int posicao2, Mochila* mochila){
  */
 void inserir_mochila(int codigo, Mochila* mochila){
     if (mochila->pokemons_mochila >= 6){
-        printf("mochila cheia, não foi possível inserir");
-        printf("gostaria de substituir?");
+        printf("mochila cheia, não foi possível inserir\n");
+        printf("gostaria de substituir algum pokemon?\n");
     }
     else{
         mochila->codigos_pokemon[mochila->pokemons_mochila] = codigo;

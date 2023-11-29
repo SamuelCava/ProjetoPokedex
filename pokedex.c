@@ -96,7 +96,8 @@ void listar_na_pokedex(Pokedex* pokedex){
         // seria interessante usar outro arquivo pra cuidar dessas buscas, isso tbm é comum ao outro coisa la
         // da mochila
         // quando no ponto eu troco por -> não funciona
-        printf("O nome do pokemon é: %s\n", pokedex->pokemons[i].nome);
+        printf("Os pokemons listados nesta versão do game são.\n");
+        printf("Pokemon: %s\n", pokedex->pokemons[i].nome);
     }
 }
 
@@ -110,7 +111,7 @@ void pesquisar_na_pokedex(int codigo, Pokedex* pokedex){
     for (int i = 0; i < pokedex->qtd_cadastrados; i++){
         if (pokedex->pokemons[i].numero == codigo){
             // achei ele
-            printf("Pokemonb encontrado\n");
+            printf("Pokemon encontrado\n");
             printf("O nome do pokemon é: %s\n", pokedex->pokemons[i].nome);
         }
     }

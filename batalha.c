@@ -13,6 +13,9 @@ void pocao(Pokemon* pokemon, int vida){
 
 void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
     
+}
+/*{
+    
     Pokemon pokemons_jogador; 
     Pokemon pokemons_adversario;
 
@@ -90,3 +93,4 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
         }//else
 
 }// função batalha_par_impar
+*/
