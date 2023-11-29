@@ -34,6 +34,7 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex){
     int bonus_jogador = 0;
     int num_adversario;
     int bonus_adversario = 0;
+    int menu_batalha;
 
     printf("Vai dar início a batalha por par ou ímpar!\n");
     printf("Seu adversario é o computador e para a batalha os pokemons serão os próximos listados aos seus.\n");
@@ -44,39 +45,54 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex){
         srand((unsigned)time(NULL));
         num_adversario = 1 + (rand() % 100);
 
-        printf("escolha Par ou ímpar:\n [1] Par\n [2] Ímpar\n");
-        scanf("%d", &escolha_jogador);
+        printf("Deseja curar ou batalha? [1] Curar [2] Batalha\n);
+        scanf("%d", &menu_batalha);
 
-        printf("Digite um número: ");
-        scanf("%d", &num_jogador);
+        switch(&menu_batalha){
+            case 1:
+            
+                break;
+            case 2:
+            
+            printf("escolha Par ou ímpar:\n [1] Par\n [2] Ímpar\n");
+            scanf("%d", &escolha_jogador);
+    
+            printf("Digite um número: ");
+            scanf("%d", &num_jogador);
+    
+            if ((num_adversario + num_jogador) % 2 == 0){
+                printf("Ganhou a vez. Você ataca!\n");
+                if(escolha_jogador == 1){
+                    if (bonus_jogador <= 2){
+                        pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque;
+                        bonus_jogador++;
+                    }else{
+                        pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque_especial;
+                        bonus_jogador = 0;
+                    }//else
+                }else{
+                    printf("Perdeu a vez. O adversario ataca!\n");
+                    if (bonus_adversario <= 2){
+                        pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque;
+                        bonus_adversario++;
+                    }else{
+                        pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque_especial;
+                        bonus_adversario = 0;
+                    }//else
+                }//else
+            }//if
+        }//while
+        printf("A batalha acabou.\n");
+        if (pokemons_jogador.hp > 0){
+            printf("Muito bem. Vitória!\n");
+        }else{
+            printf("Looser!!! Tente a próxima guerreiro.\n");
+        }//else
+                
+                break;
+            default;
+                break;
+        }//switch
 
-        if ((num_adversario + num_jogador) % 2 == 0){
-            printf("Ganhou a vez. Você ataca!\n");
-            if(escolha_jogador == 1){
-                if (bonus_jogador <= 2){
-                    pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque;
-                    bonus_jogador++;
-                }else{
-                    pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque_especial;
-                    bonus_jogador = 0;
-                }//else
-            }else{
-                printf("Perdeu a vez. O adversario ataca!\n");
-                if (bonus_adversario <= 2){
-                    pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque;
-                    bonus_adversario++;
-                }else{
-                    pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque_especial;
-                    bonus_adversario = 0;
-                }//else
-            }//else
-        }//if
-    }//while
-    printf("A batalha acabou.\n");
-    if (pokemons_jogador.hp > 0){
-        printf("Muito bem. Vitória!\n");
-    }else{
-        printf("Looser!!! Tente a próxima guerreiro.\n");
-    }//else
 
 }// função batalha_par_impar
