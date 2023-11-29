@@ -13,24 +13,24 @@ void pocao(Pokemon* pokemon, int vida){
 
 void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
     
-}
-/*{
-    
     Pokemon pokemons_jogador; 
     Pokemon pokemons_adversario;
-
-    for (int i = 0; i < pokedex->qtd_cadastrados; i++){
-            for (int j = 0; j < mochila->pokemons_mochila; j++){
-                
+    printf("Com qual pokemon deseja batalhar? ");
+    for (int i = 0; i < mochila->pokemons_mochila; i++){
+        for (int j = 0; j < pokedex->qtd_cadastrados; j++){
             if (pokedex->pokemons[i].numero == mochila->codigos_pokemon[j]){
-
-                pokemons_jogador = pokedex->pokemons[i];
-                pokemons_adversario = pokedex->pokemons[i+1];
-                
-            }//if
-                
-        }//for
-    }//for
+                printf("[%d] %s\n", i+1, pokedex->pokemons[i].nome);
+            }
+        }
+    }
+    int escolha;
+    scanf("%d", &escolha);
+    for (int i = 0; i < pokedex->qtd_cadastrados; i++){
+        if (pokedex->pokemons[i].numero == mochila->codigos_pokemon[escolha-1]){
+            copia_pokemon(pokemons_jogador, pokedex->pokemons[i]);
+            copia_pokemon(pokemons_adversario, pokedex->pokemons[i+1]);
+        }
+    }
 
     int num_jogador;
     int escolha_jogador;
@@ -65,25 +65,24 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
     
             if ((num_adversario + num_jogador) % 2 == (escolha_jogador % 2)){
                 printf("Ganhou a vez. Você ataca!\n");
-                if(escolha_jogador == 1){
-                    if (bonus_jogador <= 2){
-                        pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque;
-                        bonus_jogador++;
-                    }else{
-                        pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque_especial;
-                        bonus_jogador = 0;
-                    }//else
+                if (bonus_jogador <= 2){
+                    pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque;
+                    bonus_jogador++;
                 }else{
-                    printf("Perdeu a vez. O adversario ataca!\n");
-                    if (bonus_adversario <= 2){
-                        pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque;
-                        bonus_adversario++;
-                    }else{
-                        pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque_especial;
-                        bonus_adversario = 0;
-                    }//else
+                    pokemons_adversario.hp = pokemons_adversario.hp - pokemons_jogador.ataque_especial;
+                    bonus_jogador = 0;
                 }//else
             }//if
+            else{
+                printf("Perdeu a vez. O adversario ataca!\n");
+                if (bonus_adversario <= 2){
+                    pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque;
+                    bonus_adversario++;
+                }else{
+                    pokemons_jogador.hp = pokemons_jogador.hp - pokemons_adversario.ataque_especial;
+                    bonus_adversario = 0;
+                }//else
+            }//else
         }//while
         printf("A batalha acabou.\n");
         if (pokemons_jogador.hp > 0){
@@ -93,4 +92,3 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
         }//else
 
 }// função batalha_par_impar
-*/
