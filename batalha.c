@@ -11,7 +11,7 @@ void pocao(Pokemon* pokemon, int vida){
 }
 
 
-void batalha_par_impar(Mochila* mochila,Pokedex* pokedex){
+void batalha_par_impar(Mochila* mochila,Pokedex* pokedex, int qtd[]){
     
     Pokemon pokemons_jogador; 
     Pokemon pokemons_adversario;
@@ -50,7 +50,7 @@ void batalha_par_impar(Mochila* mochila,Pokedex* pokedex){
 
         switch(&menu_batalha){
             case 1:
-            
+                mostrar_itens(qtd)
                 break;
             case 2:
             
