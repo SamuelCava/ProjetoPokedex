@@ -101,6 +101,7 @@ void listar_na_pokedex(Pokedex* pokedex){
     }
 }
 
+
 /**
  * @brief Função responsável por pesquisar um pokemon na pokedex
  * 
@@ -116,7 +117,6 @@ void pesquisar_na_pokedex(int codigo, Pokedex* pokedex){
         }
     }
 }
-
 /**
  * @brief Função responsável por alterar um pokemon na pokedex
  * 
